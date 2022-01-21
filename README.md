@@ -4,13 +4,6 @@ Pizzeria basket App is a React app that allows you to make an order form a Pizza
 
 
 # Implementation
-- JavaScript knowledge of using variables and event listeners.
-- Knowledge of HTML and CSS
-- ReactJs
-- NodeJS
-
-
-# Implementation
 - Knowledge of ReactJs and Javascript
 - NodeJS
 - Render list in React using array map method
