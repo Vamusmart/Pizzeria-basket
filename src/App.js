@@ -38,17 +38,21 @@ function App() {
 
     <>
       <Navbar></Navbar>
-      <div className='container'>
+      <div>
         <Header countCartItems={cartItems.length}></Header>
-        <div>
-          <div className="row">
+        <div className="mainFlexContainer" id="content">
+          <div>
             <Main products={products} onAdd={onAdd}></Main>
           </div>
-          <Basket
-            cartItems={cartItems}
-            onAdd={onAdd}
-            onRemove={onRemove}
-          ></Basket>
+          <div class="flexitem" id="canvas-right">
+            <div class="fixedBasket">
+              <Basket
+                cartItems={cartItems}
+                onAdd={onAdd}
+                onRemove={onRemove}
+              ></Basket>
+            </div>
+          </div>
         </div>
       </div>
     </>

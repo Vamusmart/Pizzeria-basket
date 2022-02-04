@@ -6,10 +6,6 @@ import fruttimare from './images/pizzafruttimare.jpeg';
 import patatine from './images/pizzapatatine.jpeg';
 import quattrostagioni from './images/pizzaquattrostagioni.jpeg';
 import pesto from './images/pizzapesto.jpeg';
-import capricciosa from './images/pizzacapricciosa.jpeg';
-import chili from './images/pizzachili.jpeg';
-import prosciutto from './images/pizzaprosciutto.jpeg';
-import parmiggiana from './images/pizzaparmiggiana.jpeg';
 
 const data = {
 
@@ -64,31 +60,6 @@ const data = {
             price: 8.75,
             image: pesto,
 
-        },
-        {
-            id: '9',
-            name: 'Pizza Capricciosa',
-            price: 9.85,
-            image: capricciosa,
-        },
-        {
-            id: '10',
-            name: 'Pizza Chili',
-            price: 7.65,
-            image: chili,
-        },
-        {
-            id: '11',
-            name: 'Pizza Prosciutto',
-            price: 4.55,
-            image: prosciutto,
-
-        },
-        {
-            id: '12',
-            name: 'Pizza Parmiggiana',
-            price: 9.95,
-            image: parmiggiana,
         },
     ]
 }
