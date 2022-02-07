@@ -1,6 +1,6 @@
 # React APP Pizzeria Basket
 
-Pizzeria basket App is a React app that allows you to make an order form a Pizza restaurant and gives you the total price of the order, allowing you to add, take off or delete any pizza from the basket.
+Pizzeria basket App is a React app that allows you to make an order from a Pizza restaurant and gives you the total price of the order, allowing you to add, take off or delete any pizza from the basket.
 
 
 # Implementation
