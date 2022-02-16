@@ -1,3 +1,8 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
 body {
   font-family: "Helvetica";
   color: #0d6efd;
@@ -23,6 +28,11 @@ h3 {
 
 a {
   text-decoration: none;
+  color: blue;
+}
+
+a:visited {
+  color: #4d92fa;
 }
 
 button {
@@ -35,19 +45,17 @@ button {
   background-color: #0d6efd;
   color: #ffffff;
 }
-button.add {
+button.addRemove {
   border-radius: 0.5rem;
   width: 1.5rem;
   background-color: #0d6efd;
-  color: #ffffff;
 }
-button.remove {
+button.delete {
   border-radius: 0.5rem;
   width: 1.5rem;
   background-color: #f04040;
-  color: #ffffff;
-  margin-left: 1rem;
 }
+
 button.badge {
   border-radius: 1rem;
   width: 1.5rem;
@@ -70,10 +78,27 @@ aside {
   background-color: #ffffff;
   border-radius: 1rem;
   padding: 1rem;
+  text-align: right;
+  margin: 0 0.1rem;
 }
 
+span {
+  position: fixed;
+}
+
+#navLinks {
+  padding: 1rem;
+  font-size: 60%;
+}
+
+.container {
+  min-width: 24rem;
+}
+.logo {
+  padding: 0 0.2rem;
+}
 .card {
-  width: 22em;
+  width: 96%;
   text-align: center;
   padding: 0.5rem;
   margin: 0.5rem;
@@ -89,69 +114,59 @@ aside {
 }
 
 .navbar {
+  padding: 0 0.2rem;
+  background-color: white;
+  color: blue;
+  margin: 0;
+  border-radius: 1rem;
+  height: 80px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 1.2rem;
+  position: sticky;
+  top: 0;
+  z-index: 10;
+}
+
+.checkOut {
+  text-align: center;
   margin: 1rem;
-  font-size: 2rem;
 }
 
 @media (min-width: 374.98px) {
-  * {
-    padding: 0;
-    margin: 0;
-    min-width: 96%;
-  }
-
-  #content {
-    padding: 0;
-  }
-
   #canvas-right {
     flex: none;
     margin: 0;
   }
 
-  .mainFlexContainer {
-    display: block;
-    margin: 0;
-  }
-
-  .cartHeader {
-    margin: 0.1rem;
-  }
-  .navbar {
-    margin-bottom: 2rem;
-  }
   aside {
     padding: 0.5rem;
-    margin: 0;
     font-size: 1rem;
-    text-align: left;
-  }
-  .card {
-    margin: 0.1rem;
-  }
-  .checkOut {
-    text-align: center;
-    margin: 1rem;
   }
 
   button {
     min-width: auto;
   }
+
+  .navbar {
+    font-size: 1.6rem;
+  }
+  .mainFlexContainer {
+    display: block;
+  }
+
+  .card {
+    margin: 0.1rem;
+  }
+  .logo {
+    margin: 0.1rem;
+  }
 }
 
-@media (min-width: 585.98px) {
-  * {
-    min-width: auto;
-  }
-
-  .mainFlexContainer {
-    display: flex;
-    margin: 0rem;
-  }
-
+@media (min-width: 684.98px) {
   #content {
     background-color: #efefef;
-    padding: 0;
     border-radius: 1rem;
   }
 
@@ -160,36 +175,6 @@ aside {
     margin: 3rem 1rem;
   }
 
-  .fixedBasket {
-    position: fixed;
-    text-align: right;
-    width: 30%;
-  }
-
-  .cardTitle {
-    font-size: 1.5rem;
-    color: blue;
-  }
-
-  .cardText {
-    font-size: 1.2rem;
-    color: blue;
-  }
-  .cartHeader {
-    margin: 2rem 0;
-    position: fixed;
-    top: 0;
-    width: 100%;
-    font-size: 1rem;
-  }
-
-  .checkOut {
-    text-align: center;
-  }
-
-  .checkOutProducts {
-    font-size: 0.63rem;
-  }
   aside {
     margin: 0;
     font-size: 80%;
@@ -202,35 +187,24 @@ aside {
   button.remove {
     margin-left: 0.2rem;
   }
-}
-
-@media (min-width: 991.98px) {
-  * {
-    min-width: auto;
-  }
 
   .mainFlexContainer {
     display: flex;
-    margin: 5rem;
-  }
-
-  #content {
-    background-color: #efefef;
-    padding: 0.1rem 4.5rem;
-    border-radius: 1rem;
-  }
-
-  #canvas-right {
-    flex: 2 30%;
     margin: 0rem 3rem;
+    padding: 0.2rem 2rem;
   }
 
-  .fixedBasket {
-    position: fixed;
-    text-align: right;
-    width: 30%;
+  .navbar {
+    font-size: 2rem;
+    margin: auto;
+    padding: 0 1rem;
   }
-
+  .logo {
+    margin: auto;
+  }
+  .card {
+    width: 22em;
+  }
   .cardTitle {
     font-size: 1.5rem;
     color: blue;
@@ -240,19 +214,49 @@ aside {
     font-size: 1.2rem;
     color: blue;
   }
-  .cartHeader {
-    margin: 5rem 0;
+
+  .fixedBasket {
     position: fixed;
-    top: 0;
-    width: 98%;
+    text-align: right;
+    width: 30%;
   }
 
   .checkOut {
     text-align: center;
+  }
+
+  .checkOutProducts {
+    font-size: 0.63rem;
+  }
+}
+
+@media (min-width: 991.98px) {
+  #content {
+    padding: 0.1rem 4.5rem;
+  }
+
+  #canvas-right {
+    flex: 2 30%;
+    margin: 0rem 3rem;
+  }
+
+  .mainFlexContainer {
+    display: flex;
+    margin: 1rem 5rem;
+  }
+
+  .navbar {
+    padding: 0 5rem;
+  }
+
+  .checkOut {
     margin-top: 0.2rem;
   }
 
   .checkOutProducts {
     font-size: 1rem;
+  }
+  .logo {
+    margin: auto;
   }
 }

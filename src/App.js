@@ -1,11 +1,10 @@
-import Header from './components/Header';
 import Main from './components/Main';
 import Basket from './components/Basket';
 import Navbar from './components/Navbar';
 import data from './data';
 
 
-import { useState } from 'react';
+import { useState, Fragment } from 'react';
 
 function App() {
   const { products } = data;
@@ -22,6 +21,7 @@ function App() {
       setCartItems([...cartItems, { ...product, qty: 1 }]);
     }
   };
+
   const onRemove = (product) => {
     const exist = cartItems.find((x) => x.id === product.id);
     if (exist.qty === 1) {
@@ -34,27 +34,40 @@ function App() {
       );
     }
   };
+
+
+  const onDelete = (product) => {
+    const exist = cartItems.filter((x) => x.id === product.id);
+    setCartItems(cartItems.filter((x) => x.id !== product.id));
+
+  };
+
+
+
   return (
 
     <>
-      <Navbar></Navbar>
-      <div>
-        <Header countCartItems={cartItems.length}></Header>
-        <div className="mainFlexContainer" id="content">
-          <div>
-            <Main products={products} onAdd={onAdd}></Main>
-          </div>
-          <div class="flexitem" id="canvas-right">
-            <div class="fixedBasket">
-              <Basket
-                cartItems={cartItems}
-                onAdd={onAdd}
-                onRemove={onRemove}
-              ></Basket>
+      <Fragment>
+        <div className="container">
+          <Navbar countCartItems={cartItems.length}></Navbar>
+          <div className="mainFlexContainer" id="content">
+            <div>
+              <Main products={products} onAdd={onAdd}></Main>
+            </div>
+            <div class="flexitem" id="canvas-right">
+              <div class="fixedBasket">
+                <Basket
+                  cartItems={cartItems}
+                  onAdd={onAdd}
+                  onRemove={onRemove}
+                  onDelete={onDelete}
+
+                ></Basket>
+              </div>
             </div>
           </div>
         </div>
-      </div>
+      </Fragment>
     </>
   );
 }
